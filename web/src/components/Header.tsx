@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Plus, X } from 'phosphor-react';
 import ImageLogo from '../assets/logo.svg';
+import { NewHabitForm } from './NewHabitForm';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -19,11 +20,14 @@ export default function Header() {
       <Dialog.Root open={open} onOpenChange={setOpen}>
         <Dialog.Portal>
           <Dialog.Overlay className="bg-black/80 absolute inset-0 w-full h-full" />
-          <Dialog.Content className="p-10 absolute bg-zinc-400 rounded-xl right-1/2 top-1/2 w-full max-w-xl translate-x-1/2 -translate-y-1/2">
+          <Dialog.Content className="p-10 absolute bg-zinc-900 rounded-xl right-1/2 top-1/2 w-full max-w-md translate-x-1/2 -translate-y-1/2">
             <Dialog.Close className="absolute right-6 top-6 hover:text-zinc-200 text-zinc-500 border-none">
               <X />
             </Dialog.Close>
-            <h2 className="text-white">Modal</h2>
+            <Dialog.Title className="text-2xl font-bold leading-tight">
+              Criar hábito
+            </Dialog.Title>
+            <NewHabitForm />
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
